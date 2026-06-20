@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blood Donation Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="sicte-header">
+    <div class="brand">
+      <span class="brand-icon">+</span>
+      <div>
+        <h1>Blood Donation Portal</h1>
+        <p>Donate blood. Save lives.</p>
+      </div>
+    </div>
+
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <button class="nav-link active" type="button" data-page="home">Home</button>
+      <button class="nav-link" type="button" data-page="donor">Donor Registration</button>
+      <button class="nav-link" type="button" data-page="request">Blood Request</button>
+      <button class="nav-link" type="button" data-page="search">Blood Search</button>
+      <button class="nav-link" type="button" data-page="contact">Contact</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-content">
+          <span class="eyebrow">Emergency-ready donor network</span>
+          <h2>Every drop counts when minutes matter.</h2>
+          <p>
+            Register as a donor, request urgent blood support, and search available donors by blood group.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-btn" type="button" data-page="donor">Become a Donor</button>
+            <button class="secondary-btn" type="button" data-page="search">Find Blood</button>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>Request support</span>
+          </div>
+          <div class="stat">
+            <strong>8</strong>
+            <span>Blood groups</span>
+          </div>
+          <div class="stat">
+            <strong>1</strong>
+            <span>Donation can save 3 lives</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="donor" class="page">
+      <div class="section-shell">
+        <div class="section-heading">
+          <span class="eyebrow">Join the donor list</span>
+          <h2>Donor Registration</h2>
+        </div>
+
+        <form id="donorForm" class="form-card">
+          <label>
+            Full Name
+            <input id="donorName" type="text" placeholder="Enter your name" required />
+          </label>
+          <label>
+            Age
+            <input id="donorAge" type="number" min="18" max="65" placeholder="18 - 65" required />
+          </label>
+          <label>
+            Blood Group
+            <select id="donorBloodGroup" required>
+              <option value="">Select blood group</option>
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>O+</option>
+              <option>O-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+            </select>
+          </label>
+          <label>
+            City
+            <input id="donorCity" type="text" placeholder="Enter your city" required />
+          </label>
+          <label>
+            Phone Number
+            <input id="donorPhone" type="tel" placeholder="Enter contact number" required />
+          </label>
+          <p id="donorMessage" class="result-message" aria-live="polite"></p>
+          <button class="primary-btn" type="submit">Register Donor</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="request" class="page">
+      <div class="section-shell">
+        <div class="section-heading">
+          <span class="eyebrow">Need blood urgently?</span>
+          <h2>Blood Request</h2>
+        </div>
+
+        <form id="requestForm" class="form-card">
+          <label>
+            Patient Name
+            <input id="patientName" type="text" placeholder="Enter patient name" required />
+          </label>
+          <label>
+            Required Blood Group
+            <select id="requestBloodGroup" required>
+              <option value="">Select blood group</option>
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>O+</option>
+              <option>O-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+            </select>
+          </label>
+          <label>
+            Hospital Name
+            <input id="hospital" type="text" placeholder="Enter hospital name" required />
+          </label>
+          <label>
+            City
+            <input id="requestCity" type="text" placeholder="Enter city" required />
+          </label>
+          <label>
+            Contact Number
+            <input id="requestContact" type="tel" placeholder="Enter contact number" required />
+          </label>
+          <p id="requestMessage" class="result-message" aria-live="polite"></p>
+          <button class="primary-btn" type="submit">Submit Request</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="search" class="page">
+      <div class="section-shell">
+        <div class="section-heading">
+          <span class="eyebrow">Search compatible donors</span>
+          <h2>Blood Search</h2>
+        </div>
+
+        <div class="search-card">
+          <label>
+            Blood Group
+            <select id="bloodGroup">
+              <option value="">Select blood group</option>
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>O+</option>
+              <option>O-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+            </select>
+          </label>
+          <label>
+            City
+            <input id="searchCity" type="text" placeholder="Enter city" />
+          </label>
+          <button class="primary-btn" type="button" id="searchButton">Search Donors</button>
+          <p id="searchResult" class="result-message" aria-live="polite"></p>
+          <div id="donorList" class="donor-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="page">
+      <div class="section-shell">
+        <div class="section-heading">
+          <span class="eyebrow">We are here to help</span>
+          <h2>Contact</h2>
+        </div>
+
+        <div class="contact-grid">
+          <article>
+            <span>Email</span>
+            <strong>support@bloodportal.com</strong>
+          </article>
+          <article>
+            <span>Phone</span>
+            <strong>+91 98765 43210</strong>
+          </article>
+          <article>
+            <span>Address</span>
+            <strong>Chennai, Tamil Nadu</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Blood Donation Portal. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
